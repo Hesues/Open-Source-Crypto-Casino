@@ -38,12 +38,14 @@ For clients interested in purchasing the Damnshop.online pre-made template, we o
 
 ---
 
-<img width="495" height="894" alt="18" src="https://github.com/user-attachments/assets/b941f846-539c-40d4-876c-44924df39aa3" />
+
+<img width="493" height="895" alt="13" src="https://github.com/user-attachments/assets/cb28ccac-5f1b-4d19-9a85-25e7b045efe8" />
 <img width="499" height="895" alt="17" src="https://github.com/user-attachments/assets/4398f9f3-fb22-4c64-9ede-76c59d7ce735" />
 <img width="493" height="897" alt="16" src="https://github.com/user-attachments/assets/7f1c0293-9c47-47ea-80d5-9f1b12a16ef2" />
 <img width="495" height="894" alt="15" src="https://github.com/user-attachments/assets/601adea9-ca2f-4844-84d2-c167761f83e4" />
+<img width="495" height="894" alt="18" src="https://github.com/user-attachments/assets/b941f846-539c-40d4-876c-44924df39aa3" />
 <img width="499" height="898" alt="14" src="https://github.com/user-attachments/assets/a7df4438-2525-4fdf-af88-31a0da970673" />
-<img width="493" height="895" alt="13" src="https://github.com/user-attachments/assets/cb28ccac-5f1b-4d19-9a85-25e7b045efe8" />
+
 
 
 ---
