@@ -1,0 +1,116 @@
+=============================================================
+  BLIXBET CASINO - VPS INSTALLATION GUIDE (v1)
+=============================================================
+
+REQUIREMENTS:
+- Node.js 20+ (recommended: 22 LTS)
+- PostgreSQL 16+
+- pnpm 9+ (npm install -g pnpm)
+- Nginx or Caddy (reverse proxy)
+- 2GB+ RAM recommended
+
+=============================================================
+STEP 1: EXTRACT & INSTALL
+=============================================================
+
+tar xzf blixbetsrcv1.tar.gz
+pnpm install
+
+=============================================================
+STEP 2: ENVIRONMENT VARIABLES
+=============================================================
+
+Create a .env file in the project root with:
+
+DATABASE_URL=postgresql://user:password@localhost:5432/blixbet
+SESSION_SECRET=your-random-secret-key-min-32-chars
+PORT=8080
+NODE_ENV=production
+
+# NOWPayments (crypto deposits)
+NOWPAYMENTS_API_KEY=your-nowpayments-api-key
+NOWPAYMENTS_IPN_SECRET=your-ipn-secret
+NOWPAYMENTS_EMAIL=your-email
+NOWPAYMENTS_PASSWORD=your-password
+
+# Object Storage (optional - for file uploads)
+DEFAULT_OBJECT_STORAGE_BUCKET_ID=your-bucket-id
+PRIVATE_OBJECT_DIR=./uploads
+PUBLIC_OBJECT_SEARCH_PATHS=./public
+
+=============================================================
+STEP 3: DATABASE SETUP
+=============================================================
+
+# Create the PostgreSQL database
+createdb blixbet
+
+# Push the schema to the database
+pnpm --filter @workspace/db run push
+
+=============================================================
+STEP 4: BUILD
+=============================================================
+
+# Build the API server
+pnpm --filter @workspace/api-server run build
+
+# Build the frontend
+pnpm --filter @workspace/blixbet run build
+
+=============================================================
+STEP 5: RUN
+=============================================================
+
+# Start the server (serves both API + static frontend)
+NODE_ENV=production node artifacts/api-server/dist/index.mjs
+
+# Or use PM2 for process management:
+pm2 start artifacts/api-server/dist/index.mjs --name blixbet
+
+=============================================================
+STEP 6: NGINX REVERSE PROXY (example)
+=============================================================
+
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 86400;
+    }
+}
+
+# Then add SSL with certbot:
+# sudo certbot --nginx -d yourdomain.com
+
+=============================================================
+DEFAULT ADMIN ACCOUNT
+=============================================================
+
+Username: adboss
+Password: admin123
+
+** CHANGE THIS IMMEDIATELY AFTER FIRST LOGIN **
+
+=============================================================
+NOTES
+=============================================================
+
+- The API server serves both the REST API (/api/*) and the
+  static frontend files from the same process
+- WebSocket connections are used for: Crash game, Slides game,
+  Rooms (chat), and live updates
+- The Nginx config MUST include WebSocket upgrade headers
+- Use PM2 or systemd to keep the server running persistently
+- Currency display: Users see "B$" suffix, Admin sees "$" prefix
+
+=============================================================
