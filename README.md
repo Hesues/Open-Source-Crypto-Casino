@@ -7,6 +7,9 @@ Demo Video: https://www.youtube.com/watch?v=prFl0EPIZIc&t=188s
 
 ---
 
+<img width="1918" height="972" alt="1" src="https://github.com/user-attachments/assets/996991f4-891a-48f5-ac17-3e775b1f61d3" />
+
+---
 ## Additional Information
 
 For clients interested in purchasing the Damnshop.online pre-made template, we offer a fully functional online casino package. This includes:
