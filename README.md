@@ -3,7 +3,6 @@
 Introducing Damnshop.online, your premade online casino template featuring Crypto, Memecoin Casino, CS:GO, Growtopia, and Roblox themes. Start your online casino journey with our comprehensive package of games and features, perfect for launching your own online casino platform.
 
 Website: https://damnshop.online
-Live Version: https://crazybets.cc
 Demo Video: https://www.youtube.com/watch?v=prFl0EPIZIc&t=188s
 
 ---
