@@ -62,4 +62,10 @@ Contact us for access and purchase:
 - Telegram: t.me/hesuse
 - Discord: hesues (Active here)
 
-Note: The website may receive updates over time, so the images shown above might not exactly reflect the most current design or features. Please visit crazybets.cc to view the live version for the latest look and functionality.
+Note: The website may receive updates over time, so the images shown above might not exactly reflect the most current design or features. Please visit damnshop.online to view the live version for the latest look and functionality.
+
+
+
+
+
+
